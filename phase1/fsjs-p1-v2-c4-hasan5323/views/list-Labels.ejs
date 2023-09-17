@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
-  <body>
-    <table border="1" style="text-align: center;">
-      <tr>
-        <th>No</th>
-        <th>name</th>
-        <th>since</th>
-        <th>city</th>
-      </tr>
-      <% data.forEach(e=> { %>
-      <tr>
-        <td><%= e.id %></td>
-        <td><%= e.name %></td>
-        <td><%= e.since %></td>
-        <td><%= e.city %></td>
-      </tr>
-      <% }) %>
-    </table>
-  </body>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+      <nav class="navbar">
+        <div class="btn"><a href="/">Home</a></div>
+        <div class="btn"><a href="/labels">Labels</a></div>
+        <div class="btn"><a href="/songs">Songs</a></div>
+    </nav>
+        <h1>List Labels</h1>
+        <button class="show-detail">Show Detail Duration</button>
+        <table border="1" style="text-align: center;">
+            <tr>
+              <th class="table-head">Id</th>
+              <th class="table-head">name</th>
+              <th class="table-head">since</th>
+              <th class="table-head">city</th>
+            </tr>
+            <% data.forEach(e=> { %>
+            <tr>
+              <td><%= e.id %></td>
+              <td><%= e.name %></td>
+              <td><%= e.since %></td>
+              <td><%= e.city %></td>
+            </tr>
+            <% }) %>
+          </table>
+    </div>
+</body>
 </html>

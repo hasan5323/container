@@ -56,4 +56,20 @@ class SongDetail extends Song {
   }
 }
 
+class Tanggal {
+  static formatDate(){
+      let date = new Date(this.createdDate)
+      let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      let newFormat = date.toLocaleDateString('id-ID', options)
+      return newFormat
+  }
+  static newDate(){
+      let date = new Date(this.createdDate)
+      let years = date.getFullYear()
+      let month = date.getMonth() < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1
+      let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
+      return `${years}-${month}-${day}`
+  }
+}
+
 module.exports = { Song, Label, SongDetail, LabelDetailDuration };

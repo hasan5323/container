@@ -1,0 +1,28 @@
+.container {
+    border: 1px solid black;
+    padding: 8px;
+    margin: 16px;
+}
+
+.navbar {
+ display: flex;   
+ gap: 8px
+}
+
+.btn {
+    padding: 4px;
+    background-color: #efefef;
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+
+.show-detail {
+    background-color: white;
+    border: 4px solid green;
+    font-size: 24px;
+    padding: 20px;
+}
+
+.table-head {
+    background: aqua;
+}

@@ -5,6 +5,8 @@ const router = require("./routes/router");
 //middleware
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true })); //body parses
+
+app.use(express.static(__dirname + '/public'));
 // handler
 app.use(router);
 //listener

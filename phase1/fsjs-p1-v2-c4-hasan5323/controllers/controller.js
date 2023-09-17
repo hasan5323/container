@@ -2,13 +2,15 @@ const Model = require(`../models/model`);
 
 class Controller {
   static default(req,res){
-    res.send("_")
+    res.render("home")
   }
   static labelList(req,res){
+    
     Model.labelList((err,data)=> {
       if(err){
         res.send(err)
       } else {
+        console.log();
         res.render("list-Labels", {data})
       }
     })
@@ -62,7 +64,8 @@ class Controller {
     })
   }
   static formEditSongById(req,res){
-    const id = Number(req.params.id)
+    console.log(req.params);
+    id = Number(req.params.id)
     Model.formEditSongById((err,data)=> {
       if(err){
         res.send(err)
@@ -84,11 +87,12 @@ class Controller {
     })
   }
   static deleteSongById(req,res){
-    Model.deleteSongById((err,data)=> {
+    let id =Number(req.params.id)
+    Model.deleteSongById(id,(err,data)=> {
       if(err){
         res.send(err)
       } else {
-        res.render("delete-song-by-id", data)
+        res.render("delete-song-by-id", {data})
       }
     })
   }

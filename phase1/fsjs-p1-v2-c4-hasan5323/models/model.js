@@ -9,10 +9,13 @@ class Model {
     SELECT
     "id",
     "name",
-    TO_CHAR("since", 'DY, DD Month YYYY') AS "since",
+    "since",
     "city"
-    FROM "Labels"    
-  `;
+    FROM "Labels" as l
+    order by  l."name" asc   
+    `;
+    
+    // TO_CHAR("since", 'DY, DD Month YYYY') AS "since",
     pool.query(query, (err, data) => {
       if (err) {
         callback(err);
@@ -253,12 +256,10 @@ class Model {
       }
     });
   }
-  static deleteSongById(req, callback) {
+  static deleteSongById(id, callback) {
     const query = `
-    insert into "Songs"
-    ("title", "bandName", "duration", "genre", "createdDate", "lyric", "imageUrl", "totalVote", "labelId")
-    values
-    ('${title}', '${bandName}', ${duration}, '${genre}', '${createdDate}', '${lyric}', '${imageUrl}', ${totalVote}, ${labelId})
+    delete from "Songs" s
+    where 	s."id"=${id} 
     returning *;
     `;
     pool.query(query, (err, data) => {
@@ -266,6 +267,7 @@ class Model {
         callback(err);
       } else {
         let result = data.rows;
+        console.log(result);
         callback(null, result);
       }
     });
