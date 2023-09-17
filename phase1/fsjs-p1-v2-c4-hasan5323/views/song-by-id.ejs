@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1" style="text-align: center;">
+      <thead>
+      <tr>
+        <th>No</th>
+        <th>title</th>
+        <th>bandName</th>
+        <th>duration</th>
+        <th>genre</th>
+        <th>createdDate</th>
+        <th>lyric</th>
+        <th>imageUrl</th>
+        <th>totalVote</th>
+        <th>labelId</th>
+        <th>labelName</th
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <% data.forEach(e=> { %>
+        <td><%= e.id %></td>
+        <td><%= e.title %></td>
+        <td><%= e.bandName %></td>
+        <td><%= e.duration %></td>
+        <td><%= e.genre %></td>
+        <td><%= e.totalVote %></td>
+        <td><%= e.createdDate %></td>
+        <td><%= e.lyric %></td>
+        <td><%= e.imageUrl %></td>
+        <td><%= e.labelId %></td>
+        <td><%= e.labelName %></td>
+        <% }) %>
+      </tr>
+    </tbody>
+    </table>
+  </body>
+</html>

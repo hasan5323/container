@@ -34,37 +34,37 @@
 function mineCraft(tambang) {
   // Insert your code here
   let mineral = 0;
-  for (index = 0; index <= (tambang.length-1); index++) {
-    switch (tambang[index]) {
-    case "c":
+  for (let i = 0; i < tambang.length; i++) {
+    switch (tambang[i]) {
+      case "c":
         mineral += 20;
-    break;
-    case "i":
+        break;
+      case "i":
         mineral += 30;
-    break;
-    case "s":
+        break;
+      case "s":
         mineral += 40;
-    break;
-    case "d":
+        break;
+      case "d":
         mineral += 1000;
-    break;
-    case "g":
+        break;
+      case "g":
         mineral += 80;
-    break;
-    default:
+        break;
+      default:
         mineral += 0;
-    break;
+        break;
     }
-    }
-    if (mineral !== 0){
-        return mineral
-        } else {
-            return "Tidak ada mineral sama sekali"
-        }
+  }
+  if (mineral !== 0) {
+    return mineral;
+  } else {
+    return "Tidak ada mineral sama sekali";
+  }
 }
-
 
 console.log(mineCraft("#g####c##s")); //140
 console.log(mineCraft("######w###q###")); //Tidak ada mineral sama sekali
 console.log(mineCraft("#sdgicp##")); //1170
 console.log(mineCraft("")); //Tidak ada mineral sama sekali
+console.log(mineCraft("##u##t#p#cisggddd##"));

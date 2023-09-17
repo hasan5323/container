@@ -1,11 +1,12 @@
 function gradeScore(nama, nilai1, nilai2, nilai3) {
-    let ave =   (nilai1+nilai2,nilai3)/3;
+    let sum = nilai1 + nilai2 + nilai3;
+    let ave =   sum/3;
     let grade = ""
     if (ave >= 80) {
         grade = `A`
     } else if (ave >= 70 && ave < 80) {
         grade = `B`
-    } else if (ave < 70) {
+    } else {
         grade = `C`
     }   
     return `Selamat ${nama}, grade kamu adalah ${grade} `

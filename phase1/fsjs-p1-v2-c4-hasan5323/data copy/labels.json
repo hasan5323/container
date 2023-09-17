@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Harmonious Records",
+    "since": "1985-09-12",
+    "city": "Jakarta"
+  },
+  {
+    "name": "Euphonic Sounds",
+    "since": "1990-06-23",
+    "city": "Surabaya"
+  },
+  {
+    "name": "Mystic Melodies",
+    "since": "2005-03-15",
+    "city": "Bandung"
+  },
+  {
+    "name": "Golden Grooves",
+    "since": "2012-11-08",
+    "city": "Yogyakarta"
+  }
+]
