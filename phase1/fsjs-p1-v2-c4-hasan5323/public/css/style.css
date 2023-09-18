@@ -6,9 +6,14 @@
 
 .navbar {
  display: flex;   
- gap: 8px
+ gap: 8px;
+ 
 }
+a {
+    text-decoration: none;
+    color: black;
 
+}
 .btn {
     padding: 4px;
     background-color: #efefef;
@@ -23,6 +28,17 @@
     padding: 20px;
 }
 
+.show-detail:hover {
+    background-color: #04AA6D;
+}
+
 .table-head {
     background: aqua;
 }
+
+.show-song {
+    border: none;
+    
+    background-color: plum;
+}
+

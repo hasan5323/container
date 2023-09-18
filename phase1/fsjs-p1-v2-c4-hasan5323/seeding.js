@@ -1,15 +1,14 @@
 const pool = require("./connection");
 const fs = require("fs");
 
-const seedlabels = JSON.parse(fs.readFileSync("./data2/labels.json", "utf-8"))
+const seedlabels = JSON.parse(fs.readFileSync("./data/labels.json", "utf-8"))
   .map((label) => {
     const {id, name, since, city } = label;
-    // console.log(label);
     return `('${name}', '${since}', '${city}')`;
   })
   .join(",\n");
 
-const seedSongs = JSON.parse(fs.readFileSync("./data2/songs.json", "utf-8"))
+const seedSongs = JSON.parse(fs.readFileSync("./data/songs.json", "utf-8"))
   .map((song) => {
     const {
       id,
@@ -23,7 +22,6 @@ const seedSongs = JSON.parse(fs.readFileSync("./data2/songs.json", "utf-8"))
       totalVote,
       LabelId,
     } = song;
-    // console.log(song);
     return `('${title}', '${bandName}', ${duration}, '${genre}', '${createdDate}', '${lyric}', '${imageUrl}', ${totalVote}, ${LabelId})`;
   })
   .join(",\n");
@@ -53,7 +51,6 @@ pool.query(tableLabelsInsert, (err, data) => {
         console.log(err);
       } else {
         console.log(data.command)
-        console.log(data.rows);
         console.log(`table Songs is seeded`);
       }
     });

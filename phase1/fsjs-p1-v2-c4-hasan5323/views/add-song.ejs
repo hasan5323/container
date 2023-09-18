@@ -62,49 +62,49 @@
 </head>
 <body>
     <div class="container">
-        <h1>Edit Song</h1>
-        <form action="/songs/:id/edit" method="post" onsubmit="return validateForm()">
+        <h1>Add a song</h1>
+        <form action="/songs/add" method="post" onsubmit="return validateForm()">
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" maxlength="100" placeholder="<%= data.title %>" required>
+            <input type="text" id="title" name="title" maxlength="100" required>
             <br>
     
             <label for="bandName">Band Name:</label>
-            <input type="text" id="bandName" name="bandName" maxlength="100" placeholder="<%= data.bandName %>" required>
+            <input type="text" id="bandName" name="bandName" maxlength="100" required>
             <br>
     
             <label for="duration">Duration (in seconds):</label>
-            <input type="number" id="duration" name="duration" min="0" placeholder="<%= data.duration %>" required>
+            <input type="number" id="duration" name="duration" min="0" required>
             <br>
     
             <label for="genre">Genre:</label>
-            <input type="text" id="genre" name="genre" maxlength="100" placeholder="<%= data.genre %>" required>
+            <input type="text" id="genre" name="genre" maxlength="100" required>
             <br>
     
             <label for="createdDate">Created Date:</label>
-            <input type="date" id="createdDate" name="createdDate" placeholder="<%= data.createdDate %>" required>
+            <input type="date" id="createdDate" name="createdDate" required>
             <br>
     
             <label for="lyric">Lyric:</label>
-            <textarea id="lyric" name="lyric" rows="4" placeholder="<%= data.lyric %>" required></textarea>
+            <textarea id="lyric" name="lyric" rows="4" required></textarea>
             <br>
     
             <label for="imageUrl">Image URL:</label>
-            <input type="url" id="imageUrl" name="imageUrl" maxlength="150" placeholder="<%= data.imageUrl %>" required>
+            <input type="url" id="imageUrl" name="imageUrl" maxlength="150" required>
             <br>
     
             <label for="totalVote">Total Vote:</label>
-            <input type="number" id="totalVote" name="totalVote" min="0" placeholder="<%= data.totalVote %>" required>
+            <input type="number" id="totalVote" name="totalVote" min="0" required>
             <br>
     
             <label for="labelId">Label ID:</label>
-            <input type="number" id="labelId" name="labelId" min="1" placeholder="<%= data.labelId %>" required>
+            <input type="number" id="labelId" name="labelId" min="1" required>
             <br>
 <!--     
             <label for="labelName">Label Name:</label>
             <input type="text" id="labelName" name="labelName" maxlength="100" required>
             <br> -->
     
-            <button type="submit">update Song</button>
+            <button type="submit"><a href="/songs"></a>Add Song</button>
         </form>
         <br>
         <a href="/">Back to Home</a>

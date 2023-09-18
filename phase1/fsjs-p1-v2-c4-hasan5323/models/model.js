@@ -14,7 +14,7 @@ class Model {
     FROM "Labels" as l
     order by  l."name" asc   
     `;
-    
+
     // TO_CHAR("since", 'DY, DD Month YYYY') AS "since",
     pool.query(query, (err, data) => {
       if (err) {
@@ -22,13 +22,46 @@ class Model {
       } else {
         let result = data.rows.map((el) => {
           const { id, name, since, city } = el;
-          return new Label(id, name, since, city);
+          const inputDate = new Date(since);
+
+          const daysOfWeek = [
+            "Minggu",
+            "Senin",
+            "Selasa",
+            "Rabu",
+            "Kamis",
+            "Jumat",
+            "Sabtu",
+          ];
+          const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+
+          const dayOfWeek = daysOfWeek[inputDate.getUTCDay()];
+          const day = inputDate.getUTCDate();
+          const month = months[inputDate.getUTCMonth()];
+          const year = inputDate.getUTCFullYear();
+
+          const formattedDate = `${dayOfWeek}, ${day} ${month} ${year}`;
+
+          return new Label(id, name, formattedDate, city);
         });
         callback(null, result);
       }
     });
   }
-  static labelsDuration(callback) {
+  static labelsDetail(callback) {
     const query = `
     SELECT
     l."id",
@@ -65,10 +98,42 @@ class Model {
             maxDuration,
             minDuration,
           } = el;
+          const inputDate = new Date(since);
+
+          const daysOfWeek = [
+            "Minggu",
+            "Senin",
+            "Selasa",
+            "Rabu",
+            "Kamis",
+            "Jumat",
+            "Sabtu",
+          ];
+          const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+
+          const dayOfWeek = daysOfWeek[inputDate.getUTCDay()];
+          const day = inputDate.getUTCDate();
+          const month = months[inputDate.getUTCMonth()];
+          const year = inputDate.getUTCFullYear();
+
+          const formattedDate = `${dayOfWeek}, ${day} ${month} ${year}`;
           return new LabelDetailDuration(
             id,
             name,
-            since,
+            formattedDate,
             city,
             averageDuration,
             maxDuration,
@@ -183,7 +248,7 @@ class Model {
       }
     });
   }
-  static formEditSongById(callback){
+  static formEditSongById(callback) {
     const query = `
     select 
     s."id",

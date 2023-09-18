@@ -2,7 +2,7 @@ const Model = require(`../models/model`);
 
 class Controller {
   static default(req,res){
-    res.render("home")
+    res.render("index")
   }
   static labelList(req,res){
     
@@ -10,17 +10,18 @@ class Controller {
       if(err){
         res.send(err)
       } else {
+        
         console.log();
-        res.render("list-Labels", {data})
+        res.render("labels", {data})
       }
     })
   }
-  static labelsDuration(req,res){
-    Model.labelsDuration((err,data)=> {
+  static labelsDetail(req,res){
+    Model.labelsDetail((err,data)=> {
       if(err){
         res.send(err)
       } else {
-        res.render("labels-Duration", {data})
+        res.render("labels-detail", {data})
       }
     })
   }
@@ -30,7 +31,7 @@ class Controller {
       if(err){
         res.send(err)
       } else {
-        res.render("list-Songs", {data})
+        res.render("songs", {data})
       }
     })
   }
@@ -39,7 +40,7 @@ class Controller {
       if(err){
         res.send(err)
       } else {
-        res.render("form-add-song", {data})
+        res.render("add-song", {data})
       }
     })
   }
@@ -48,7 +49,7 @@ class Controller {
       if(err){
         res.send(err)
       } else {
-        res.render("add-Song-toDatabase", {data})
+        res.redirect("/songs")
       }
     })
   }
@@ -59,7 +60,7 @@ class Controller {
         res.send(err)
       } else {
         data = data.filter(e => e.id===id)
-        res.render("song-by-id", {data})
+        res.render("songs", {data})
       }
     })
   }
@@ -72,7 +73,7 @@ class Controller {
       } else {
         data = data.filter(e => e.id===id)
         data = data[0]
-        res.render("form-edit-song-by-id", {data})
+        res.render("edit-song", {data})
       }
     })
   }
@@ -82,7 +83,7 @@ class Controller {
       if(err){
         res.send(err)
       } else {
-        res.render("edit-song-by-id", {data})
+        res.render("/songs")
       }
     })
   }
@@ -92,7 +93,7 @@ class Controller {
       if(err){
         res.send(err)
       } else {
-        res.render("delete-song-by-id", {data})
+        res.redirect("/songs")
       }
     })
   }

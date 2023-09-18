@@ -5,51 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    
-  </body>
+  <body></body>
 </html>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
     <div class="container">
       <nav class="navbar">
         <div class="btn"><a href="/">Home</a></div>
         <div class="btn"><a href="/labels">Labels</a></div>
         <div class="btn"><a href="/songs">Songs</a></div>
-    </nav>
-        <h1>List Labels</h1>
-        <button class="show-detail">Show Detail Duration</button>
-        <table border="1" style="text-align: center;">
-          <thead>
+      </nav>
+      <h1>List Songs</h1>
+      <form action="/songs/add" method="post">
+        <button type="button">add song</button>
+      </form>
+      <br>  
+      <br>  
+      <br>
+      <form action="/songs/:id" method="get">
+        <input type="text" placeholder="id"/>
+        <button>SEARCH</button>
+      </form>
+      <table border="1" style="text-align: center">
+        <thead>
           <tr>
-            <th>No</th>
             <th>title</th>
             <th>bandName</th>
             <th>duration</th>
             <th>genre</th>
             <th>totalVote</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <% data.forEach(e=> { %>
           <tr>
-            <td><%= e.id %></td>
             <td><%= e.title %></td>
             <td><%= e.bandName %></td>
             <td><%= e.duration %></td>
             <td><%= e.genre %></td>
             <td><%= e.totalVote %></td>
+            <td>
+              <button class="action-read"><a href="/songs/<%= e.id %>">read song</a></button>
+              <button class="action-edit"><a href="/songs/<%= e.id %>/edit">edit</a></button> 
+              <button class="action-delete"><a href="/songs/<%= e.id %>/delete">delete</a></button>
+            </td>
           </tr>
           <% }) %>
         </tbody>
-        </table>
+      </table>
     </div>
-</body>
+
+  </body>
 </html>
